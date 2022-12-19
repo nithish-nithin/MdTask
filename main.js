@@ -1,0 +1,188 @@
+let stafDetails = [
+  {
+    id: "58",
+    name: "Mark Hill",
+    designation: "Cheif Executive Officer",
+    team: "Product",
+    manager: null,
+    img: "https://i.imgur.com/uk87y7L.jpg",
+    short: "CEO",
+  },
+  {
+    id: "59",
+    name: "Joe Linux",
+    designation: "Cheif Technology Officer",
+    team: "Development & IT",
+    manager: "58",
+    img: "https://i.imgur.com/I8N6wle.gif",
+    short: "CTO",
+  },
+  {
+    id: "60",
+    name: "Linda May",
+    designation: "Cheif Bussiness Officer",
+    team: "Bussiness Flow",
+    manager: "58",
+    img: "https://i.imgur.com/Id57NSW.jpg",
+    short: "CBO",
+  },
+  {
+    id: "61",
+    name: "John Green",
+    designation: "Cheif Accounting Officer",
+    team: "Finance",
+    manager: "58",
+    img: "https://i.imgur.com/NRYrB0l.jpeg",
+    short: "CAO",
+  },
+  {
+    id: "62",
+    name: "Ron Blomquist",
+    designation: "Cheif Information Officer",
+    team: "Development & IT",
+    manager: "59",
+    img: "https://i.imgur.com/Xdx7Ptn.jpeg",
+    short: "CIO",
+  },
+  {
+    id: "63",
+    name: "Michael Rubin",
+    designation: "Cheif Innovative Officer",
+    team: "Development & IT",
+    manager: "59",
+    img: "https://i.imgur.com/eX7uYfG.jpeg",
+    short: "CIO",
+  },
+  {
+    id: "64",
+    name: "Allice Lopez",
+    designation: "Cheif Communication Officer",
+    team: "Bussiness Flow",
+    manager: "60",
+    img: "https://i.imgur.com/waxFbz6.jpg",
+    short: "CCO",
+  },
+  {
+    id: "65",
+    name: "Marry Johnson",
+    designation: "Cheif Brand Officer",
+    team: "Bussiness Flow",
+    manager: "60",
+    img: "https://i.imgur.com/Zi7qqQA.jpg",
+    short: "CBO",
+  },
+  {
+    id: "66",
+    name: "Kirk Douglas",
+    designation: "Cheif Bussiness Officer",
+    team: "Bussiness Flow",
+    manager: "60",
+    img: "https://i.imgur.com/0hhtbTn.jpeg",
+    short: "CBO",
+  },
+  {
+    id: "67",
+    name: "Erica Reel",
+    designation: "Cheif Bussiness Officer",
+    team: "Bussiness Flow",
+    manager: "60",
+    img: "https://i.imgur.com/I9XFqdd.jpg",
+    short: "CBO",
+  },
+];
+
+for (i = 0; i < stafDetails.length; i++) {
+  let sel = document.createElement("option");
+  sel.innerHTML = stafDetails[i].id;
+  sel.value = stafDetails[i].id;
+  document.getElementById("emptyId").appendChild(sel);
+}
+
+function companyEmployee() {
+  let emptyID = document.getElementById("emptyId").value;
+  const dataownElement = document.getElementById("dataown");
+
+  dataownElement.innerHTML = "";
+
+  for (j = 0; j < stafDetails.length; j++) {
+    if (emptyID === stafDetails[j].id) {
+      let tr = document.createElement("tr");
+
+      let td1 = document.createElement("td");
+      let td2 = document.createElement("td");
+      let td3 = document.createElement("td");
+      let td4 = document.createElement("td");
+      let td5 = document.createElement("td");
+      let td6 = document.createElement("td");
+      let td7 = document.createElement("td");
+
+      let text1 = document.createTextNode(stafDetails[j].id);
+      let text2 = document.createTextNode(stafDetails[j].name);
+      let text3 = document.createTextNode(stafDetails[j].designation);
+      let text4 = document.createTextNode(stafDetails[j].team);
+      let text5 = document.createTextNode(stafDetails[j].manager);
+      let text6 = document.createTextNode(stafDetails[j].img);
+      let text7 = document.createTextNode(stafDetails[j].short);
+
+      td1.appendChild(text1);
+      td2.appendChild(text2);
+      td3.appendChild(text3);
+      td4.appendChild(text4);
+      td5.appendChild(text5);
+      td6.appendChild(text6);
+      td7.appendChild(text7);
+
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      tr.appendChild(td4);
+      tr.appendChild(td5);
+      tr.appendChild(td6);
+      tr.appendChild(td7);
+
+      dataownElement.appendChild(tr);
+    }
+
+    const emptyTableElement = document.getElementById("emptyTable");
+
+    emptyTableElement.innerHTML = "";
+    var e = stafDetails.filter((empdet) => empdet.manager === emptyID);
+    for (let i = 0; i < e.length; i++) {
+      let tr = document.createElement("tr");
+
+      let td1 = document.createElement("td");
+      let td2 = document.createElement("td");
+      let td3 = document.createElement("td");
+      let td4 = document.createElement("td");
+      let td5 = document.createElement("td");
+      let td6 = document.createElement("td");
+      let td7 = document.createElement("td");
+
+      let text1 = document.createTextNode(e[i].id);
+      let text2 = document.createTextNode(e[i].name);
+      let text3 = document.createTextNode(e[i].designation);
+      let text4 = document.createTextNode(e[i].team);
+      let text5 = document.createTextNode(e[i].manager);
+      let text6 = document.createTextNode(e[i].img);
+      let text7 = document.createTextNode(e[i].short);
+
+      td1.appendChild(text1);
+      td2.appendChild(text2);
+      td3.appendChild(text3);
+      td4.appendChild(text4);
+      td5.appendChild(text5);
+      td6.appendChild(text6);
+      td7.appendChild(text7);
+
+      tr.appendChild(td1);
+      tr.appendChild(td2);
+      tr.appendChild(td3);
+      tr.appendChild(td4);
+      tr.appendChild(td5);
+      tr.appendChild(td6);
+      tr.appendChild(td7);
+
+      emptyTableElement.appendChild(tr);
+    }
+  }
+}
